@@ -41,10 +41,13 @@ function handleChange(event) {
   const name = target.name;
   const value = target.value;
 
-  if(name === 'className') {
-    nameCss = '.' + value;
-  } else if(name === "idName") {
-    nameCss = '#' + value;
+  switch(name) {
+    case 'className':
+      nameCss = '.' + value;
+    break;
+    case 'idName':
+      nameCss = '#' + value;
+    break;
   }
 
   if(handleStyle[name]) {
