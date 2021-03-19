@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Button Creator HTML e CSS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <section class="button-creator">
+    <form id="controles" name="controles">
+      <!-- ID name -->
+      <label for="idName">IDName</label>
+      <input type="text" name="idName" id="idName">
+      <!-- Class name -->
+      <label for="className">ClassName</label>
+      <input type="text" name="className" id="className">
+      <!-- Text -->
+      <label for="innerText">Text</label>
+      <input type="text" name="innerText" id="innerText">
+      <!-- Color -->
+      <label for="color">Color</label>
+      <input type="color" name="color" id="color">
+      <!-- BackgoundColor -->
+      <label for="backgroundColor">Background-Color</label>
+      <input type="color" name="backgroundColor" id="backgroundColor">
+      <!-- Widht -->
+      <label for="width">Widht</label>
+      <input type="range" name="width" id="width" min="0" max="600">
+      <!-- Hieght -->
+      <label for="height">Hieght</label>
+      <input type="range" name="height" id="height" min="0" max="200">
+      <!-- Border -->
+      <label for="border">Border</label>
+      <input type="text" name="border" id="border">
+      <!-- Border-Radius -->
+      <label for="borderRadius">Border-Radius</label>
+      <input type="range" name="borderRadius" id="borderRadius" min="0" max="20">
+      <!-- Font-Family -->
+      <label for="fontFamily">Font-Family</label>
+      <select id="fontFamily" name="fontFamily">
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="monospace">Monospace</option>
+        <option value="IBM Plex Mono">IBM Plex Mono</option>
+      </select>
+      <!-- FontSize -->
+      <label for="fontSize">Font-Size</label>
+      <input type="number" name="fontSize" id="fontSize">
+    </form>
+    <section class="resultado">
+      <button class="btn">Botão</button>
+      <pre>
+        <code class="css"></code>
+      </pre>
+    </section>
+  </section>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
