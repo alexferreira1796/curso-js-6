@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Formulários</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    label {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      margin-bottom: .5rem;
+      margin-top: 1rem;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    input, label {
+      display: block;
+    }
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: .5rem;
+      border: 2px solid #000;
+      font-size: 1rem;
+      margin-bottom: .5rem;
+    }
+    textarea {
+      height: 150px;
+    }
+    .invalid {
+      border-color: red;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form name="contato" id="contato">
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome" required>
+    <span class="error"></span>
+
+    <select name="cores" id="cores">
+      <option value="blue">Azul</option>
+      <option value="red">Vermelho</option>
+      <option value="grey">Cinza</option>
+    </select>
+
+    <br>
+    <laber for="color">Cor</laber>
+    <input type="color" name="color" id="color">
+
+    <laber for="data">Data</laber>
+    <input type="date" name="data" id="data">
+
+    <laber for="number">Número</laber>
+    <input type="number" name="number" id="number">
+
+    <laber for="range">Range</laber>
+    <input type="range" name="range" id="range">
+
+    <laber for="pass">Senha</laber>
+    <input type="password" name="pass" id="pass">
+
+    <label for="identidade">Possui identidade?</label>
+    <input type="checkbox" name="checkbox" value="identidade" id="identidade">
+
+    <label for="casado">Casado?</label>
+    <input type="checkbox" name="checkbox" value="casado" id="casado">
+
+    <!-- Radio -->
+    <label for="radio">Trabalha?</label>
+    <input type="radio" name="radio" value="Sim">
+    <input type="radio" name="radio" value="Não">
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+    <span class="error"></span>
+
+    <label for="mensagem">Mensagem</label>
+    <textarea id="mensagem" name="mensagem"></textarea>
+    
+  </form>
+  <span class="texto"></span>
+  <script>
+    //const form = document.querySelector("#contato");
+    const texto = document.querySelector(".texto");
+    const form = document.forms[0];
+    console.log(form);
+    console.log(form.elements);
+    console.log(form.elements.nome);
+    console.log(form.elements.email.value);
+    console.log(form.elements.mensagem);
+
+    // Objeto para pegar todos os inputs
+    let dados = {};
+    function handleChange(event) {
+      const target = event.target;
+
+      // Validacao padrao do formulario
+      if(!target.checkValidity()) {
+        target.classList.add('invalid');
+        form.elements.nome.setCustomValidity('Campo nome obrigatório');
+        target.nextElementSibling.innerText = target.validationMessage;
+      }
+      texto.innerText = target.value;
+
+      // Select
+      document.body.style.backgroundColor = target.value;
+
+      // Checked
+      if(target.checked)
+      console.log(target.value);
+
+      // Copulando Objeto
+      dados[ target.name ] = target.value;
+      console.log(dados);
+    }
+    form.addEventListener('change', handleChange);
+
+  </script>
+</body>
+</html>
