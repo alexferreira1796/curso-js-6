@@ -45,7 +45,7 @@ const next = document.querySelector('.next');
 const chuck = document.querySelector('.chuck');
 
 function nextJoke() {
-  fetch('https://api.chucknorris.io/jokes/random')
+  fetch('https://api.chucknorris.io/jokes/random', {method: 'GET'})
   .then(res => res.json())
   .then(json => {
     chuck.innerHTML = `<p>${json.value}</p>`;
